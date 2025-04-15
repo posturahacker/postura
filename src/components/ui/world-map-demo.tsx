@@ -6,7 +6,16 @@ export default function WorldMapDemo() {
   return (
     <div className="py-40 dark:bg-black bg-white w-full">
       <div className="max-w-7xl mx-auto text-center">
-        <p className="font-bold text-xl md:text-4xl dark:text-white text-black">
+        <motion.h1
+          initial={{ opacity: 0.5, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="mt-8 bg-gradient-to-br from-orange-300 to-orange-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+        >
           Conexões{" "}
           <span className="text-orange-400">
             {"Globais".split("").map((word, idx) => (
@@ -21,11 +30,16 @@ export default function WorldMapDemo() {
               </motion.span>
             ))}
           </span>
-        </p>
-        <p className="text-sm md:text-lg text-neutral-500 max-w-2xl mx-auto py-4">
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-sm md:text-lg text-white/80 max-w-2xl mx-auto py-4"
+        >
           Quebre as barreiras tradicionais. Trabalhe de qualquer lugar, com a
           liberdade que você merece. Perfeito para Hackers e Inovadores.
-        </p>
+        </motion.p>
       </div>
       <WorldMap
         lineColor="#f97316"
