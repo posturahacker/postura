@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&family=Orbitron:wght@700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -76,6 +77,9 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --foreground-rgb: 255, 140, 0;
+  --background-start-rgb: 26, 26, 26;
+  --background-end-rgb: 0, 0, 0;
 }
 
 .dark {
@@ -118,5 +122,58 @@
   }
   body {
     @apply bg-background text-foreground;
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(180deg, 
+      rgb(var(--background-start-rgb)) 0%, 
+      rgb(var(--foreground-rgb)) 50%, 
+      rgb(var(--background-end-rgb)) 100%);
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+}
+
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5),
+               0 0 20px rgba(255, 140, 0, 0.3);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+}
+
+.article-section {
+  transition: all 1s ease-in-out;
+}
+
+.article-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 7px #ff8c00,
+      0 0 10px #ff8c00,
+      0 0 21px #ff8c00,
+      0 0 42px #ff8c00;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
   }
 }

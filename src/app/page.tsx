@@ -1,11 +1,14 @@
 import LampDemo from "@/components/ui/lamp-demo";
-import WorldMapDemo from "@/components/ui/world-map-demo";
+import { Article } from "@/components/ui/article";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="min-h-screen bg-black">
       <LampDemo />
-      <WorldMapDemo />
+      <Article />
+      <footer className="text-center py-6 text-orange-700 text-sm border-t border-orange-500/30 mt-20">
+        <p>© 2025 Postura Hacker. Todos os direitos reservados. // Execução Finalizada</p>
+      </footer>
     </main>
   );
 }
